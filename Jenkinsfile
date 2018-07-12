@@ -9,7 +9,6 @@ pipeline {
                 sh 'sudo docker build -t myapp2 .'
             }
         }
-        }
         stage('Test') {
             steps {
                 sh 'py.test --verbose --junit-xml test-reports/results.xml app.py'
@@ -21,5 +20,6 @@ pipeline {
             }
         }
     }
+}
 
 
