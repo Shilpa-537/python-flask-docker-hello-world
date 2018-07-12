@@ -10,11 +10,6 @@ pipeline {
             }
         }
         stage('Test') {
-            agent {
-                docker {
-                    image 'qnib/pytest'
-                }
-            }
             steps {
                 sh 'sudo py.test --verbose --junit-xml test-reports/results.xml app.py'
             }
