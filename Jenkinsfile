@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'sudo py.test --verbose --junit-xml test-reports/results.xml app.py'
+                sh 'sudo py.test --verbose --junit-xml results.xml app.py'
             }
             post {
                 always {
