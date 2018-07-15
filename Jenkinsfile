@@ -13,7 +13,7 @@ pipeline {
             steps {
                 sh 'sudo docker images'
                 script {
-                  docker.withRegistry('https://123456789122.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:demo-ecr-credentials') 
+                  docker.withRegistry('https://016412741688.dkr.ecr.us-west-2.amazonaws.com', 'ecr:us-west-2:testing') 
 				  {
                    docker.image('hello-world').push('latest')
                   }
