@@ -13,9 +13,7 @@ pipeline {
             steps {
                 docker.withRegistry('https://016412741688.dkr.ecr.us-west-2.amazonaws.com', 'ecr:us-west-2:myapp2-ecr-credentials')
                 docker.image('myapp2').push('latest')
-                }
             }
-            
         }
     }
 }
