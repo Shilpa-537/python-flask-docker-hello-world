@@ -11,9 +11,8 @@ pipeline {
         }
         stage('Push image to ecr') {
             steps {
-                docker.withRegistry("https://your.ecr.domain.amazonws.com", "ecr:us-east-1:credential-id") {
- 	              docker.image("your-image-name").push()
-                }
+                 sh'docker.withRegistry("https://your.ecr.domain.amazonws.com", "ecr:us-east-1:credential-id") '
+ 	              sh'docker.image("your-image-name").push()'      
             }
         }
     }
