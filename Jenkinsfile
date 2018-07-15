@@ -9,15 +9,13 @@ pipeline {
                 sh 'sudo docker build -t myapp2 .'
             }
         }
-        stage('Test') {
+        stage('Push image to ecr') {
             steps {
-                sh 'sudo py.test --verbose --junit-xml results.xml app.py'
-            }
-            post {
-                always {
-                    junit 'test-reports/results.xml'
+    docker tag myapp2:latest 016412741688.dkr.ecr.us-west-2.amazonaws.com/myapp2:latest {
+        docker.image('myapp2').push('latest')
                 }
             }
+            
         }
     }
 }
