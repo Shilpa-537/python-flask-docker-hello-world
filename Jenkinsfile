@@ -11,9 +11,13 @@ pipeline {
         }
         stage('Push image to ecr') {
             steps {
-                docker.withRegistry ('https://016412741688.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:demo-ecr-credentials')
-                sh 'docker tag myapp2:latest 016412741688.dkr.ecr.us-west-2.amazonaws.com/myapp2:latest'
-                sh 'docker push 016412741688.dkr.ecr.us-west-2.amazonaws.com/myapp2:latest'
+                sh 'sudo docker images'
+                script {
+                  docker.withRegistry('https://123456789122.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:demo-ecr-credentials') 
+				  {
+                   docker.image('hello-world').push('latest')
+                  }
+                }
             }
         }
     }
